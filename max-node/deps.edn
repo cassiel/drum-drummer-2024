@@ -1,5 +1,6 @@
 {:deps {org.clojure/clojure {:mvn/version "1.11.2"}
         org.clojure/clojurescript {:mvn/version "1.11.132"}
+        org.clojure/core.async {:mvn/version "1.6.681"}
         com.bhauman/figwheel-main {:mvn/version "0.2.18"}
         ;; optional but recommended
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
