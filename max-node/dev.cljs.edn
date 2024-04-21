@@ -1,0 +1,2 @@
+{:target :nodejs
+ :main   net.cassiel.dd-24.core}

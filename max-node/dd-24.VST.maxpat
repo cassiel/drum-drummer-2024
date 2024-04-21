@@ -85,7 +85,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 390.0, 235.0, 100.0, 23.0 ],
 					"style" : "cassiel.abstraction",
-					"text" : "dd24.Strip-_"
+					"text" : "dd-24.Strip-_"
 				}
 
 			}
@@ -111,7 +111,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 285.0, 280.0, 100.0, 23.0 ],
 					"style" : "cassiel.abstraction",
-					"text" : "dd24.Strip-_"
+					"text" : "dd-24.Strip-_"
 				}
 
 			}
@@ -282,7 +282,7 @@
 					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 45.0, 175.0, 85.0, 23.0 ],
 					"style" : "cassiel.abstraction",
-					"text" : "dd24.Break"
+					"text" : "dd-24.Break"
 				}
 
 			}
@@ -608,14 +608,14 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "dd24.Break.maxpat",
+				"name" : "dd-24.Break.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.Strip-_.maxpat",
+				"name" : "dd-24.Strip-_.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",

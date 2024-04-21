@@ -44,7 +44,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 315.0, 735.0, 150.0, 21.0 ],
+					"patching_rect" : [ 825.0, 820.0, 150.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 15.0, 40.0, 75.0, 21.0 ],
 					"text" : "TRANSP>",
@@ -58,7 +58,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 300.0, 720.0, 150.0, 21.0 ],
+					"patching_rect" : [ 825.0, 795.0, 150.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 15.0, 10.0, 75.0, 21.0 ],
 					"text" : "NODEJS>",
@@ -479,7 +479,7 @@
 					"patching_rect" : [ 105.0, 85.0, 43.0, 30.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 285.0, 15.0, 43.0, 30.0 ],
-					"text" : "RWD"
+					"text" : "RTZ"
 				}
 
 			}
@@ -985,7 +985,6 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-9",
-									"int" : 1,
 									"maxclass" : "gswitch2",
 									"numinlets" : 2,
 									"numoutlets" : 2,
@@ -1529,7 +1528,7 @@
 									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 630.0, 210.0, 108.0, 23.0 ],
 									"style" : "cassiel.abstraction",
-									"text" : "dd24.VST Axon"
+									"text" : "dd-24.VST Axon"
 								}
 
 							}
@@ -1588,7 +1587,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 615.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1615,7 +1614,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 525.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1628,7 +1627,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 435.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1641,7 +1640,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 345.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1654,7 +1653,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 255.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1680,7 +1679,7 @@
 													"outlettype" : [ "list" ],
 													"patching_rect" : [ 165.0, 240.0, 85.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Ramps"
+													"text" : "dd-24.Ramps"
 												}
 
 											}
@@ -1987,7 +1986,7 @@
 									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 165.0, 210.0, 115.0, 23.0 ],
 									"style" : "cassiel.abstraction",
-									"text" : "dd24.VST Basic"
+									"text" : "dd-24.VST Basic"
 								}
 
 							}
@@ -2000,7 +1999,7 @@
 									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 360.0, 210.0, 161.0, 23.0 ],
 									"style" : "cassiel.abstraction",
-									"text" : "dd24.VST Filter_MINI"
+									"text" : "dd-24.VST Filter_MINI"
 								}
 
 							}
@@ -2013,7 +2012,7 @@
 									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 495.0, 235.0, 154.0, 23.0 ],
 									"style" : "cassiel.abstraction",
-									"text" : "dd24.VST Replika_XT"
+									"text" : "dd-24.VST Replika_XT"
 								}
 
 							}
@@ -2026,7 +2025,7 @@
 									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 270.0, 235.0, 108.0, 23.0 ],
 									"style" : "cassiel.abstraction",
-									"text" : "dd24.VST Enso"
+									"text" : "dd-24.VST Enso"
 								}
 
 							}
@@ -2099,7 +2098,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 555.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -2139,7 +2138,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 465.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -2179,7 +2178,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 375.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -2244,7 +2243,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 285.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -2271,7 +2270,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 195.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -2298,7 +2297,7 @@
 													"outlettype" : [ "float" ],
 													"patching_rect" : [ 105.0, 100.0, 77.0, 23.0 ],
 													"style" : "cassiel.abstraction",
-													"text" : "dd24.Peak"
+													"text" : "dd-24.Peak"
 												}
 
 											}
@@ -3290,7 +3289,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 450.0, 510.0, 113.0, 23.0 ],
-									"text" : "1 38 10 0"
+									"text" : "0 0 0 500"
 								}
 
 							}
@@ -4415,14 +4414,6 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 15.0, 145.0, 154.0, 23.0 ],
-					"saved_object_attributes" : 					{
-						"autostart" : 0,
-						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
-						"watch" : 0
-					}
-,
 					"text" : "node.script main.js"
 				}
 
@@ -4433,7 +4424,7 @@
 					"maxclass" : "panel",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 405.0, 410.0, 128.0, 128.0 ],
+					"patching_rect" : [ 675.0, 795.0, 128.0, 128.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 150.0, 70.0, 180.0, 70.0 ]
 				}
@@ -4798,35 +4789,35 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.Break.maxpat",
+				"name" : "dd-24.Break.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.Peak.maxpat",
+				"name" : "dd-24.Peak.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.Ramps.maxpat",
+				"name" : "dd-24.Ramps.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.Strip-_.maxpat",
+				"name" : "dd-24.Strip-_.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "dd24.VST.maxpat",
+				"name" : "dd-24.VST.maxpat",
 				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
@@ -4835,13 +4826,6 @@
 , 			{
 				"name" : "fit_jweb_to_bounds.js",
 				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "main.js",
-				"bootpath" : "~/GITHUB/cassiel/drum-drummer-2024/max-node",
-				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
