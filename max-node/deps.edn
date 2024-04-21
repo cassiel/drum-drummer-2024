@@ -1,11 +1,11 @@
-{:deps {org.clojure/clojure {:mvn/version "1.10.0"}
-        org.clojure/clojurescript {:mvn/version "1.10.339"}
-        com.bhauman/figwheel-main {:mvn/version "0.2.0"}
+{:deps {org.clojure/clojure {:mvn/version "1.11.2"}
+        org.clojure/clojurescript {:mvn/version "1.11.132"}
+        com.bhauman/figwheel-main {:mvn/version "0.2.18"}
         ;; optional but recommended
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
         ;; Other useful stuff:
-        binaryage/oops {:mvn/version "0.6.4"}
-        spectacles {:mvn/version "0.3.5"}
+        binaryage/oops {:mvn/version "0.7.2"}
+        spectacles/spectacles {:mvn/version "0.3.5"}
         }
  :aliases {:fig {:main-opts ["-m" "figwheel.main"]}
            :outdated {:deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
