@@ -16,7 +16,7 @@
 
 ;; Messages out to Max:
 ;; - :show: update dictionary view
-;; - :win [name] [1/0]: open or close named window ("seq", "main", "audio", "plug 1"-"plug 5")
+;; - :win [name] [1/0]: open or close named window ("seq", "main" (open only!), "audio", "plug" 1-5)
 ;; - :now [...m...]: output message
 ;; - :seq :add :main [pos] [...m...]: schedule message
 ;; - :krellmixer [...xxx...]: set krell mixer labels, alignment etc.
@@ -24,17 +24,16 @@
 
 ;; Messages [...m...]:
 ;; - :mix :set [col] [row] [level] [secs]: matrix mix
-;; - :to-plug [1..5] [name]: load plug-in
-;; - [plug N] "note" [p] [v] [d]: MIDI note with duration
-;; - [plug N] "param" [name/id] [val]: parameter change
-;; - [plug N] "params": request parameter names
-;; - [plug N] "get" [name-or-id]: request parameter value
-;; - [plug N] :plugged [0/1]: unplug/replug device to reset to INIT
+;; - [plug N] :note [p] [v] [d]: MIDI note with duration
+;; - [plug N] :param [name/id] [val]: parameter change
+;; - [plug N] :params: request parameter names
+;; - [plug N] :get [name-or-id]: request parameter value
+;; - [plug N] :load [name]: plug device
 
 ;; Incoming:
 ;; "request" [beat]: request for messages for this beat (via "seq add")
-;; "pname" [device] [param-name]: incoming parameter name
-;; "pvalue" [device] [param-id] [value] [value-str]: incoming parameter value (such as change)
+;; "pname" [1-5] [param-name]: incoming parameter name
+;; "pvalue" [1-5] [param-id] [value] [value-str]: incoming parameter value (such as change)
 
 ;; Generic handler:
 
@@ -50,11 +49,21 @@
              :pvalue
              (fn [& args] (apply px/pvalue-in PARAMS args)))
 
-(c/xmit :master 0 0)
+;; Simple mixing:
 
+(c/xmit :master 0 0)
 (c/xmit :now :mix :set 2 2 -40 3)
 
-(c/xmit :now :to-plug 1 )
+;; Manual test of plug-in control:
+
+(c/xmit :now :plug 1 :load "Rift")
+(c/xmit :now :plug 1 :load "Enso")
+
+(c/xmit :win :plug 1 1)
+
+(c/xmit :now :plug 1 :params)
+
+(deref PARAMS)
 
 
 (plugs/label 1 :HELLO)
