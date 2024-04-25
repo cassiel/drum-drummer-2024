@@ -24,11 +24,12 @@
 
 ;; Messages [...m...]:
 ;; - :mix :set [col] [row] [level] [secs]: matrix mix
-;; - [plug N] :note [p] [v] [d]: MIDI note with duration
-;; - [plug N] :param [name/id] [val]: parameter change
-;; - [plug N] :params: request parameter names
-;; - [plug N] :get [name-or-id]: request parameter value
-;; - [plug N] :load [name]: plug device
+;; - :set-plug [1-5] [name]
+;; - :plug [name] :load [name]: plug device - TODO can we lose the second name?
+;; - :plug [name] :note [p] [v] [d]: MIDI note with duration
+;; - :plug [name] :param [name/id] [val]: parameter change
+;; - :plug [name] :params: request parameter names
+;; - :plug [name] :get [name-or-id]: request parameter value
 
 ;; Incoming:
 ;; "request" [beat]: request for messages for this beat (via "seq add")
@@ -69,3 +70,9 @@
 (plugs/label 1 :HELLO)
 
 (plugs/reset)
+
+
+
+(let [names ["A" "B" "C"]]
+  (doseq [[k v] (map list (rest (range)) names)]
+    (js/console.log k "->" v)))

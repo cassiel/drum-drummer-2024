@@ -5,9 +5,12 @@
 (def ^:private initial (vec (conj (repeat 5 "---") "IO")))
 (def ^:private PLUG-STATE (atom initial))
 
-(defn- flush [data]
-  (apply c/xmit :crosspatch :inlabels data)
-  (apply c/xmit :crosspatch :outlabels data)
+(defn- setup-max [state]
+  (doseq [[i n] (rest (map list (range) state))]
+    (c/xmit :now :set-plug i n))
+
+  (apply c/xmit :crosspatch :inlabels state)
+  (apply c/xmit :crosspatch :outlabels state)
 
   (doseq [x [["setdirection" "down"]
              ["setalignment" "right"]
@@ -15,13 +18,14 @@
              ["clear"]]]
     (apply c/xmit :krellmixer x))
 
-  (doseq [lab (reverse data)]
+  (doseq [lab (reverse state)]
     (c/xmit :krellmixer :append lab)))
 
-(defn label
-  "`i` starts at 1; label 0 is always 'IO'"
-  [i text]
-  (flush (swap! PLUG-STATE assoc i (name text))))
+(defn plug
+  "`i` starts at 1; label 0 is always 'IO'."
+  [i plug-name]
+  (setup-max (swap! PLUG-STATE assoc i (name plug-name))))
+
 
 (defn reset []
-  (flush (reset! PLUG-STATE initial)))
+  (setup-max (reset! PLUG-STATE initial)))
