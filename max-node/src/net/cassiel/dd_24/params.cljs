@@ -85,26 +85,26 @@
     (first idx)))
 
 (defn pname-in
-  "Parameter message in. Clean up the possibly multi-part name, map to param ID
-   with nil for numeric and string value."
+  "Parameter name message in. Clean up the possibly multi-part name, map to param ID
+   (indexed up via a counter) with nil for numeric and string value."
   [PARAMS device & name-parts]
-  (let [device-k (keyword device)
-        pname (keyword (clojure.string/join "_" name-parts))
-        P'
-        (swap! PARAMS
-               (fn [P]
-                 (let [counter (or (get-in P [device-k :counter]) 0)
-                       params (get-in P [device-k :params])]
-                   (-> P
-                       (assoc-in [device-k :counter] (inc counter))
-                       (assoc-in [device-k :params pname] [(inc counter) nil nil])
-                       #_ (as-> X
-                           (cx/conformer ::param-tracking X))))))]
+  (when-not (= (first name-parts) "MIDI")
+    (let [device-k (keyword device)
+          pname (keyword (clojure.string/join "_" name-parts))
+          P'
+          (swap! PARAMS
+                 (fn [P]
+                   (let [counter (or (get-in P [device-k :counter]) 0)
+                         params (get-in P [device-k :params])]
+                     (-> P
+                         (assoc-in [device-k :counter] (inc counter))
+                         (assoc-in [device-k :params pname] [(inc counter) nil nil])
+                         #_ (as-> X
+                                (cx/conformer ::param-tracking X))))))]
 
-    ;; Filter_MINI has a huge number of "MIDI CC [...]" params. Don't try to get the
-    ;; initial values, it'll cause trouble.
-    (when-not (= (first name-parts) "MIDI")
-      (.outlet c/max-api "now" device "get" (dec (get-in P' [device-k :counter]))))))
+      ;; As parameter name comes in, and we index it, ask for the value by index.
+      (c/xmit :now device :get (dec (get-in P' [device-k :counter])))
+      #_ (.outlet c/max-api "now" device "get" (dec (get-in P' [device-k :counter]))))))
 
 (defn lookup-param-name [param-map id]
   (let [map-seq (seq param-map)
@@ -116,7 +116,6 @@
   "Parameter value in by ID: update the parameter tracking data.
    Ignore if device or ID not (yet) known."
   [PARAMS device id value value-str]
-  (println id value value-str)
   (let [kdevice (keyword device)]
     (swap! PARAMS
            (fn [P]

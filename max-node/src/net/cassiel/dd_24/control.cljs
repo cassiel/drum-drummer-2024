@@ -7,6 +7,7 @@
 (def win-state (atom {}))
 
 (defn window
+  "Somewhat vestigial: plug-in windows via VST name are in plugs."
   ([item how]
    (c/xmit :win item how))
 

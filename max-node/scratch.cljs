@@ -2,6 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async :refer [go chan <! >!]]
             [cljs.core.async.interop :refer-macros [<p!]]
+            [oops.core :refer [oget ocall]]
             [net.cassiel.dd-24.core :as c]
             [net.cassiel.dd-24.params :as px]
             [net.cassiel.dd-24.sequencing :as seq]
@@ -24,12 +25,11 @@
 
 ;; Messages [...m...]:
 ;; - :mix :set [col] [row] [level] [secs]: matrix mix
-;; - :set-plug [1-5] [name]
-;; - :plug [name] :load [name]: plug device - TODO can we lose the second name?
-;; - :plug [name] :note [p] [v] [d]: MIDI note with duration
-;; - :plug [name] :param [name/id] [val]: parameter change
-;; - :plug [name] :params: request parameter names
-;; - :plug [name] :get [name-or-id]: request parameter value
+;; - :plug [1-5] :load [name]: plug device
+;; - :plug [1-5] :note [p] [v] [d]: MIDI note with duration
+;; - :plug [1-5] :param [name/id] [val]: parameter change
+;; - :plug [1-5] :params: request parameter names
+;; - :plug [1-5] :get [name-or-id]: request parameter value
 
 ;; Incoming:
 ;; "request" [beat]: request for messages for this beat (via "seq add")
@@ -39,16 +39,32 @@
 ;; Generic handler:
 
 (ctrl/handle :request
+             ;; Process sequence step: populate this bar (fired one bar in advance):
              (fn [pos]
                (let [{:keys [messages]} (swap! SEQ seq/process-request pos)]
                  (doseq [x messages]
                    (apply c/xmit :seq :add :main x))))
 
              :pname
+             ;; Parameter name in: swap into PARAMS
              (fn [& args] (apply px/pname-in PARAMS args))
 
+             ;; Parameter value in: swap into params
              :pvalue
              (fn [& args] (apply px/pvalue-in PARAMS args)))
+
+;; APIs:
+
+(ctrl/window :seq 0)
+(ctrl/window :main 1)
+(ctrl/window :audio 0)
+
+;; (ctrl/window <Loaded VST Name> 0/1)
+
+;; (px/request-params PARAMS <Loaded-VST-Name>)
+;; (px/get-matching PARAMS <Loaded-VST-Name> #"LFO")
+;; (px/get-matching-to-dict PARAMS <Loaded-VST-Name> #"LFO")
+
 
 ;; Simple mixing:
 
@@ -60,19 +76,15 @@
 (c/xmit :now :plug 1 :load "Rift")
 (c/xmit :now :plug 1 :load "Enso")
 
-(c/xmit :win :plug 1 1)
+(c/xmit :win :plug 1 0)
 
 (c/xmit :now :plug 1 :params)
 
+
 (deref PARAMS)
 
+(plugs/plug 1 "Rift")
+(plugs/plug 1 "Other Desert Cities")
+(plugs/index-of-plug "Other Desert Cities")
 
-(plugs/label 1 :HELLO)
-
-(plugs/reset)
-
-
-
-(let [names ["A" "B" "C"]]
-  (doseq [[k v] (map list (rest (range)) names)]
-    (js/console.log k "->" v)))
+(plugs/win "Other Desert Cities" 0)
